@@ -1,0 +1,26 @@
+project:
+  name: "SecureFederatedBrainSeg"
+  seed: 42
+
+paths:
+  data_root: "./Data/brats_training"
+  ipfs_storage: "./ipfs_storage"
+  global_model: "./saved_models/global/global_model.pt"
+  splits_dir: "./src/data/splits"
+
+federated:
+  rounds: 25            # Increased to ensure convergence (Loss < 0.5)
+  num_clients: 3        
+  local_epochs: 2       # Increased to learn more per round
+
+model:
+  roi_size: [96, 96, 96]
+  batch_size: 1
+  swin_feature_size: 48 # Keep 48 for good accuracy (24 is too weak)
+
+blockchain:
+  rpc_url: "http://127.0.0.1:7545"
+  chain_id: 1337
+
+ipfs:
+  url: "/ip4/127.0.0.1/tcp/5001"

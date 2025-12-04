@@ -1,0 +1,29 @@
+#data ignoring
+# Ignore data directory
+Data/
+
+# Ignore virtual environment
+venv/
+
+# Ignore saved models
+saved_models/
+
+# Ignore environment file
+.env
+
+
+ipfs_storage/
+.vscode
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+.ipynb_checkpoints
+coverage
+.pytest_cache/
+*.sqlite3
+*.log
+.idea/
+*.egg-info/
+dist/
+build/

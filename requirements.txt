@@ -1,0 +1,30 @@
+# --- Deep Learning Core ---
+# PyTorch 2.0+ is required for Python 3.11 support
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# --- Medical Imaging ---
+# MONAI 1.2+ supports Python 3.11
+monai[all]>=1.3.0
+nibabel>=5.1.0
+numpy>=1.24.3
+scikit-image>=0.21.0
+
+# --- Blockchain & Decentralization ---
+# Web3 6.0+ is required for modern Python versions
+web3>=6.11.0
+py-solc-x>=1.1.1
+python-dotenv>=1.0.0
+
+# --- IPFS ---
+# Note: Standard ipfshttpclient has known issues with Py 3.10+.
+# We include it here, but see the "Installation Note" below.
+
+
+# --- Utilities ---
+tqdm>=4.66.0
+pyyaml>=6.0.1
+matplotlib>=3.8.0
+requests>=2.31.0
+Deep Learning (PyTorch 2.0+ is required for Py 3.11)
