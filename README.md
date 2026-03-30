@@ -18,7 +18,7 @@ A **privacy-preserving federated learning system for brain tumor segmentation** 
 8. [Configuration](#configuration)
 9. [Roadmap & Known Limitations](#roadmap--known-limitations)
 10. [Contributing](#contributing)
-11. [Citation](#citation)
+
 
 ---
 
