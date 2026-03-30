@@ -56,10 +56,7 @@ A complete end-to-end system combining:
 ## Architecture
 
 ### System Diagram
-
-```
-<img src="architecture.png" alt="Data Flow diagram" width="500">
-```
+![Data Flow diagram](architecture.png)
 
 ### Training Loop (Each Round)
 
