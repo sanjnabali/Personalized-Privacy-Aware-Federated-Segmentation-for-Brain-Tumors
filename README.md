@@ -58,76 +58,7 @@ A complete end-to-end system combining:
 ### System Diagram
 
 ```
-┌────────────────────────────────────────────────────────────────┐
-│                    HOSPITALS (Data Owners)                      │
-│                                                                  │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
-│  │   Hospital A    │  │   Hospital B    │  │   Hospital C    │ │
-│  │  (Client 1)     │  │  (Client 2)     │  │  (Client 3)     │ │
-│  │                 │  │                 │  │                 │ │
-│  │ ┌─────────────┐ │  │ ┌─────────────┐ │  │ ┌─────────────┐ │ │
-│  │ │ Local Data  │ │  │ │ Local Data  │ │  │ │ Local Data  │ │ │
-│  │ │  (1000 MRIs)│ │  │ │  (800 MRIs) │ │  │ │ (1200 MRIs) │ │ │
-│  │ └─────────────┘ │  │ └─────────────┘ │  │ └─────────────┘ │ │
-│  │        ↓         │  │        ↓         │  │        ↓         │ │
-│  │  ┌──────────────┐ │  │  ┌──────────────┐ │  │  ┌──────────────┐ │
-│  │  │ Train Locally│ │  │  │ Train Locally│ │  │  │ Train Locally│ │ │
-│  │  │  2 epochs    │ │  │  │  2 epochs    │ │  │  │  2 epochs    │ │ │
-│  │  └──────────────┘ │  │  └──────────────┘ │  │  └──────────────┘ │ │
-│  │        ↓           │  │        ↓          │  │        ↓          │ │
-│  │    [Model]        │  │    [Model]        │  │    [Model]        │ │
-│  └─────────┬──────────┘  └─────────┬────────┘  └─────────┬─────────┘ │
-└────────────┼──────────────────────┼──────────────────────┼────────────┘
-             │                      │                      │
-             ↓                      ↓                      ↓
-┌────────────────────────────────────────────────────────────────┐
-│                    DECENTRALIZED LAYER                          │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐ │
-│  │                   IPFS Network                             │ │
-│  │  (Stores Model Checkpoints)                               │ │
-│  │  QmHashClient1... QmHashClient2... QmHashClient3...       │ │
-│  └────────────────────────────────────────────────────────────┘ │
-│                          ↓                                       │
-│  ┌────────────────────────────────────────────────────────────┐ │
-│  │              ETHEREUM (Ganache/Testnet)                    │ │
-│  │         Smart Contract: FederatedConsensus                │ │
-│  │                                                            │ │
-│  │  Block #10045: Round 1                                   │ │
-│  │    - Client 1: QmHashClient1                            │ │
-│  │    - Client 2: QmHashClient2                            │ │
-│  │    - Client 3: QmHashClient3                            │ │
-│  │    - Global: QmHashGlobal1                              │ │
-│  │    - Loss: 0.52                                         │ │
-│  │                                                            │ │
-│  │  Block #10046: Round 2                                   │ │
-│  │    - Client 1: QmHashClient1_v2                         │ │
-│  │    - Client 2: QmHashClient2_v2                         │ │
-│  │    - Client 3: QmHashClient3_v2                         │ │
-│  │    - Global: QmHashGlobal2                              │ │
-│  │    - Loss: 0.38                                         │ │
-│  │                                                            │ │
-│  └────────────────────────────────────────────────────────────┘ │
-└────────────────────────────────────────────────────────────────┘
-             ↓                      ↓                      
-┌────────────────────────────────────────────────────────────────┐
-│                    SERVER (Aggregation)                         │
-│                                                                  │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │  Federated Averaging (FedAvg) Algorithm                  │  │
-│  │  Global Model = (Model_1 + Model_2 + Model_3) / 3       │  │
-│  │                                                           │  │
-│  │  Best Model Tracking (Lowest Validation Loss)           │  │
-│  │  saved_models/global/global_model_best.pt               │  │
-│  └──────────────────────────────────────────────────────────┘  │
-│                          ↓                                       │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │  Streamlit Dashboard                                     │  │
-│  │  - Training curves                                       │  │
-│  │  - Blockchain ledger                                     │  │
-│  │  - Model inference on validation set                     │  │
-│  └──────────────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────────────┘
+<img src="results/paper_figures/segmentation_result.png" alt="Segmentation Result" width="500">
 ```
 
 ### Training Loop (Each Round)
