@@ -58,7 +58,7 @@ A complete end-to-end system combining:
 ### System Diagram
 
 ```
-<img src="results/paper_figures/segmentation_result.png" alt="Segmentation Result" width="500">
+<img src="architecture.png" alt="Data Flow diagram" width="500">
 ```
 
 ### Training Loop (Each Round)
